@@ -1,0 +1,52 @@
+import React, { useReducer } from 'react';
+
+const initialState = {
+  count: 0,
+  subtractNum: 0
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'DECREMENT':
+      return {
+        ...state,
+        count: state.count - action.payload
+      };
+    case 'SET_SUB_NUM':
+      return {
+        ...state,
+        subtractNum: action.payload
+      };
+    default:
+      return state;
+  }
+}
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      {/* render the state and dispatch function as needed */}
+    </div>
+  );
+}
+function reducer(state, action) {
+  switch (action.type) {
+    case 'DECREMENT':
+      return {
+        ...state,
+        count: state.count - action.payload
+      };
+    case 'SET_SUB_NUM':
+      return {
+        ...state,
+        subtractNum: action.payload
+      };
+    default:
+      return state;
+  }
+}
+<button id="subtractBtn" onClick={() => dispatch({ type: 'DECREMENT', payload: state.subtractNum })}>
+  Subtract
+</button>
